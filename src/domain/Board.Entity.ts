@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from './User.Entity'; 
-import { AuditingField } from './AuditingField.Entity';
+import { User } from './user.entity'; 
+import { AuditingField } from './auditingField.entity';
 
 
 
@@ -22,5 +22,6 @@ export class Board extends AuditingField{
     @Column({ nullable: true })
     content: string | null;
 
+    @Column()
     like: number;
 }

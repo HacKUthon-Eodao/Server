@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn} from 'typeorm';
-import { AuditingField } from './AuditingField.Entity';
+import { Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import { AuditingField } from './auditingField.entity';
 
 
 
@@ -12,6 +12,7 @@ export class User extends AuditingField {
 
     //kakaoToken: KakaoOauthToken;
 
+    @Column({ nullable: false })
     nickname: String;
 
     imageContentId: number | null;

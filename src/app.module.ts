@@ -2,8 +2,13 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './User/User.Entity';
+import { User } from './domain/user.entity';
 import { ConfigModule } from '@nestjs/config';
+import { AuditingField } from './domain/auditingField.entity';
+import { Board } from './domain/board.entity';
+import { Friend } from './domain/friend.entity';
+import { Like } from 'typeorm';
+import { Quest } from './domain/quest.entity';
 
 @Module({
   imports: [
@@ -19,7 +24,7 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_NAME,
       synchronize: true,
       logging: true,
-      entities: [User],
+      entities: [AuditingField,Board,Friend,Like,Quest,User],
       autoLoadEntities: true,
     })
   ],
