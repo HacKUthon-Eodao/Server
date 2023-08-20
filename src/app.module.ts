@@ -3,9 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './User/User.Entity';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: '.env'
+    }), 
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -17,7 +21,6 @@ import { User } from './User/User.Entity';
       logging: true,
       entities: [User],
       autoLoadEntities: true,
-
     })
   ],
   controllers: [AppController],
