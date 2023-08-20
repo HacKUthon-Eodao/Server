@@ -1,7 +1,10 @@
-import { Entity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm';
+import { Entity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class AuditingField{
+export abstract class AuditingField{
+
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -11,4 +14,5 @@ export class AuditingField{
 
   @DeleteDateColumn({ nullable: true })
   deletedAt: Date | null;
+  
 }

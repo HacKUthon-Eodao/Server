@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn} from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
 
 
@@ -8,9 +8,7 @@ export class Quest {
     
     @PrimaryGeneratedColumn()
     id: number;
-
+        
     name: String;
-
-    
 
 }
